@@ -1,0 +1,6 @@
+{
+  "keenBrowser": "chrome",
+  "keenHeadless": false,
+  "keenSavePageSource": true,
+  "keenTimeout": 10000
+}

@@ -1,3 +1,5 @@
 .idea
+.allure
 target
+build
 script

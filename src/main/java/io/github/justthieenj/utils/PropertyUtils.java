@@ -1,6 +1,6 @@
-package utils;
+package io.github.justthieenj.utils;
 
-import dataobject.Config;
+import io.github.justthieenj.dataobject.Config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

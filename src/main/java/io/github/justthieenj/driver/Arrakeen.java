@@ -1,17 +1,16 @@
-package driver;
+package io.github.justthieenj.driver;
 
-import enums.Browser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import utils.ArrakeenConfig;
+import io.github.justthieenj.utils.ArrakeenConfig;
 
 public class Arrakeen {
     private static final ThreadLocal<WebDriver> DRIVERS = new ThreadLocal<>();
 
     public static void initDriver() {
-        var driver = switch (Browser.fromStr(ArrakeenConfig.BROWSER)) {
+        var driver = switch (ArrakeenConfig.BROWSER) {
             case chrome -> new ChromeDriver();
             case msedge -> new EdgeDriver();
             case firefox -> new FirefoxDriver();

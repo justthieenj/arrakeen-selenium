@@ -1,9 +1,9 @@
-package dataobject;
+package io.github.justthieenj.dataobject;
 
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Data;
-import utils.JsonUtils;
+import io.github.justthieenj.utils.JsonUtils;
 
 import java.util.Objects;
 

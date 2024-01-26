@@ -1,4 +1,4 @@
-package element;
+package io.github.justthieenj.element;
 
 public interface ArrakeenElement {
     void click();

@@ -2,8 +2,8 @@ package io.github.justthieenj.dataobject;
 
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import lombok.Data;
 import io.github.justthieenj.utils.JsonUtils;
+import lombok.Data;
 
 import java.util.Objects;
 
@@ -13,6 +13,7 @@ public class Config {
     private boolean keenHeadless;
     private boolean keenSavePageSource;
     private long keenTimeout;
+    private String keenBaseUrl;
 
     private static final String FULL_PATH = Objects.requireNonNull(Config.class.getClassLoader().getResource("config.json")).getPath();
     private static Config instance;

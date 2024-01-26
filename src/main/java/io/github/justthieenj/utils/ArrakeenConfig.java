@@ -10,4 +10,5 @@ public class ArrakeenConfig {
     public static final long NAVIGATION_TIMEOUT = 60000;
     public static final boolean HEADLESS = ReflectUtils.getProperty("keenHeadless", CONFIG.isKeenHeadless(), Boolean.class);
     public static final boolean SAVE_PAGE_SOURCE = ReflectUtils.getProperty("keenSavePageSource", CONFIG.isKeenSavePageSource(), Boolean.class);
+    public static final String BASE_URL = ReflectUtils.getProperty("keenBaseUrl", CONFIG.getKeenBaseUrl());
 }

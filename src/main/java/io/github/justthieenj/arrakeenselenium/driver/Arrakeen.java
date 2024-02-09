@@ -1,8 +1,9 @@
-package io.github.justthieenj.driver;
+package io.github.justthieenj.arrakeenselenium.driver;
 
-import io.github.justthieenj.element.ArrakeenElement;
-import io.github.justthieenj.element.ArrakeenElementImpl;
-import io.github.justthieenj.utils.ArrakeenConfig;
+import io.github.justthieenj.arrakeenselenium.element.ArrakeenElement;
+import io.github.justthieenj.arrakeenselenium.element.ArrakeenElements;
+import io.github.justthieenj.arrakeenselenium.utils.ArrakeenConfig;
+import io.github.justthieenj.arrakeenselenium.element.ArrakeenElementImpl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -44,6 +45,20 @@ public class Arrakeen {
     public static ArrakeenElement find(By locator) {
         return new ArrakeenElementImpl(locator);
     }
+
+    public static ArrakeenElement findByText(String text) {
+        var xpath = "//*[contains(text()),'%s']".formatted(text);
+        return new ArrakeenElementImpl(xpath);
+    }
+
+    public static ArrakeenElements finds(String locator) {
+        return new ArrakeenElementImpl(locator);
+    }
+
+    public static ArrakeenElements finds(By locator) {
+        return new ArrakeenElementImpl(locator);
+    }
+
 
     public static void sleep(long milliseconds) {
         try {

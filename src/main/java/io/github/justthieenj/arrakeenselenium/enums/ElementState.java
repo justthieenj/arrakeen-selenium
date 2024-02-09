@@ -1,4 +1,4 @@
-package io.github.justthieenj.enums;
+package io.github.justthieenj.arrakeenselenium.enums;
 
 public enum ElementState {
     attached,

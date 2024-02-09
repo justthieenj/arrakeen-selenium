@@ -13,3 +13,9 @@ This is a Selenium core library for my personal project using latest JDK LTS ver
 
 - selenium-java
 - jackon-databind
+
+## Projects using this library
+
+- [dotafetchmatch](https://github.com/justthieenj/dotafetchmatch)
+
+

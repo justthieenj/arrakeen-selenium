@@ -15,12 +15,10 @@ import java.util.Map;
 public class ArrakeenElementImpl implements ArrakeenElement, ArrakeenElements {
     protected String locator;
     protected By byLocator;
-    protected String dynamicLocator;
     protected ArrakeenElementWait wait;
 
     public ArrakeenElementImpl(String locator) {
         this.locator = locator;
-        this.dynamicLocator = locator;
         this.byLocator = getByLocator();
         this.wait = new ArrakeenElementWait(getDriver(), byLocator);
     }

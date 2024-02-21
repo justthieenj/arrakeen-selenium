@@ -4,7 +4,7 @@ import io.github.justthieenj.arrakeenselenium.dataobject.Config;
 import io.github.justthieenj.arrakeenselenium.enums.Browser;
 
 public class ArrakeenConfig {
-    public static final Config CONFIG = Config.get();
+    private static final Config CONFIG = Config.get();
     public static final Browser BROWSER = Browser.fromStr(ReflectUtils.getProperty("keenBrowser", CONFIG.getKeenBrowser()));
     public static final long TIMEOUT = ReflectUtils.getProperty("keenTimeout", CONFIG.getKeenTimeout(), Long.class);
     public static final long NAVIGATION_TIMEOUT = 60000;

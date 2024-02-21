@@ -1,6 +1,5 @@
-package io.github.justthieenj.arrakeenselenium.element;
+package io.github.justthieenj.arrakeenselenium.core;
 
-import io.github.justthieenj.arrakeenselenium.driver.Arrakeen;
 import io.github.justthieenj.arrakeenselenium.enums.Attribute;
 import io.github.justthieenj.arrakeenselenium.enums.ElementState;
 import io.github.justthieenj.arrakeenselenium.enums.ElementWaitAction;
@@ -17,13 +16,13 @@ public class ArrakeenElementImpl implements ArrakeenElement, ArrakeenElements {
     protected By byLocator;
     protected ArrakeenElementWait wait;
 
-    public ArrakeenElementImpl(String locator) {
+    protected ArrakeenElementImpl(String locator) {
         this.locator = locator;
         this.byLocator = getByLocator();
         this.wait = new ArrakeenElementWait(getDriver(), byLocator);
     }
 
-    public ArrakeenElementImpl(By byLocator) {
+    protected ArrakeenElementImpl(By byLocator) {
         this.byLocator = byLocator;
         this.wait = new ArrakeenElementWait(getDriver(), byLocator);
     }

@@ -1,9 +1,6 @@
-package io.github.justthieenj.arrakeenselenium.driver;
+package io.github.justthieenj.arrakeenselenium.core;
 
-import io.github.justthieenj.arrakeenselenium.element.ArrakeenElement;
-import io.github.justthieenj.arrakeenselenium.element.ArrakeenElements;
 import io.github.justthieenj.arrakeenselenium.utils.ArrakeenConfig;
-import io.github.justthieenj.arrakeenselenium.element.ArrakeenElementImpl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

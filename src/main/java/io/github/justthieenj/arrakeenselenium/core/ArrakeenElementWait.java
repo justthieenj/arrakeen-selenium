@@ -1,4 +1,4 @@
-package io.github.justthieenj.arrakeenselenium.element;
+package io.github.justthieenj.arrakeenselenium.core;
 
 import io.github.justthieenj.arrakeenselenium.enums.ElementState;
 import io.github.justthieenj.arrakeenselenium.utils.ArrakeenConfig;

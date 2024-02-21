@@ -6,7 +6,7 @@
 
     <groupId>io.github.justthieenj</groupId>
     <artifactId>arrakeen-selenium</artifactId>
-    <version>0.1</version>
+    <version>1.0</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

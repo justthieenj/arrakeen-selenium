@@ -17,8 +17,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return desiredStr;
     }
 
-    public static String removeText(String str, String text) {
-        return str.replaceAll(text, "");
+    public static String removeText(String str, String... texts) {
+        for (var text : texts) {
+            str = str.replaceAll(text, "");
+        }
+        return str;
     }
 
     public static String removeSpaces(String str) {

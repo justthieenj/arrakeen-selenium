@@ -47,7 +47,7 @@ public class Arrakeen {
     }
 
     public static ArrakeenElement findByText(String text) {
-        var xpath = "//*[contains(text()),'%s']".formatted(text);
+        var xpath = "//*[contains(text(),'%s')]".formatted(text);
         return find(xpath);
     }
 

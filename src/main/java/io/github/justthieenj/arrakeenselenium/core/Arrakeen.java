@@ -1,6 +1,8 @@
 package io.github.justthieenj.arrakeenselenium.core;
 
 import io.github.justthieenj.arrakeenselenium.utils.ArrakeenConfig;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,6 +10,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Arrakeen {
+    private static final Logger LOGGER = LogManager.getLogger();
     private static final ThreadLocal<WebDriver> DRIVERS = new ThreadLocal<>();
 
     public static void initDriver() {
@@ -32,6 +35,7 @@ public class Arrakeen {
     }
 
     public static void quitDriver() {
+        LOGGER.info("Quitting {} driver...", ArrakeenConfig.BROWSER);
         getDriver().quit();
     }
 

@@ -17,5 +17,5 @@ This is a Selenium core library for my personal project using latest JDK LTS ver
 ## Projects using this library
 
 - [dotafetchmatch](https://github.com/justthieenj/dotafetchmatch)
-
+- [sample-arrakeen-selenium](https://github.com/justthieenj/sample-arrakeen-selenium)
 

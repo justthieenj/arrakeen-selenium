@@ -9,12 +9,12 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="io.github.justthienj" level="INFO"/>
-        <Logger name="io.github.justthienj.utils" level="TRACE" additivity="false">
+        <Logger name="io.github.justthieenj.arrakeenselenium" level="INFO"/>
+        <Logger name="io.github.justthieenj.arrakeenselenium.utils" level="TRACE" additivity="false">
             <AppenderRef ref="Utils"/>
         </Logger>
-        <Logger name="io.github.justthienj.utils.Log" level="INFO" additivity="false">
-            <AppenderRef ref="Console"/>
+        <Logger name="io.github.justthieenj.arrakeenselenium.core" level="TRACE" additivity="false">
+            <AppenderRef ref="Utils"/>
         </Logger>
         <Root level="ERROR">
             <AppenderRef ref="Console"/>

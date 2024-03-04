@@ -3,5 +3,6 @@
   "keenHeadless": false,
   "keenSavePageSource": true,
   "keenTimeout": 10000,
+  "keenNavigationTimeout": 60000,
   "keenBaseUrl": ""
 }

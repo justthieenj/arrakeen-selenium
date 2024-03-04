@@ -13,6 +13,7 @@ public class Config {
     private boolean keenHeadless;
     private boolean keenSavePageSource;
     private long keenTimeout;
+    private long keenNavigationTimeout;
     private String keenBaseUrl;
 
     private static final String FULL_PATH = Objects.requireNonNull(Config.class.getClassLoader().getResource("config.json")).getPath();

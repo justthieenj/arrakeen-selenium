@@ -27,11 +27,21 @@ public class Arrakeen {
     }
 
     public static void open(String url) {
-        getDriver().manage().window().maximize();
-        url = url.equals("/") ? ArrakeenConfig.BASE_URL : url;
-        if (url.isEmpty())
-            throw new IllegalArgumentException("Base URL is not set");
-        getDriver().get(url);
+        if (!ArrakeenConfig.HEADLESS) {
+            getDriver().manage().window().maximize();
+        }
+
+        String finalUrl = null;
+        if (url.startsWith("http") || url.startsWith("https") || url.startsWith("www."))
+            finalUrl = url;
+        else if (url.startsWith("/") || url.isEmpty()) {
+            // if both BASE_URL and url are empty, throw exception
+            if (ArrakeenConfig.BASE_URL.isEmpty()) {
+                throw new IllegalArgumentException("Base URL is not set");
+            }
+            finalUrl = ArrakeenConfig.BASE_URL + url;
+        }
+        getDriver().get(finalUrl);
     }
 
     public static void quitDriver() {

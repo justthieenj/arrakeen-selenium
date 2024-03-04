@@ -3,6 +3,7 @@ package io.github.justthieenj.arrakeenselenium.core;
 import io.github.justthieenj.arrakeenselenium.enums.Attribute;
 import io.github.justthieenj.arrakeenselenium.enums.ElementState;
 import io.github.justthieenj.arrakeenselenium.enums.ElementWaitAction;
+import io.github.justthieenj.arrakeenselenium.utils.ArrakeenConfig;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -80,7 +81,7 @@ public class ArrakeenElementImpl implements ArrakeenElement, ArrakeenElements {
     @Override
     public boolean is(ElementState state) {
         try {
-            wait.waitUntil(state);
+            wait.waitUntil(state, ArrakeenConfig.CHECK_TIMEOUT);
             return true;
         } catch (Exception e) {
             return false;

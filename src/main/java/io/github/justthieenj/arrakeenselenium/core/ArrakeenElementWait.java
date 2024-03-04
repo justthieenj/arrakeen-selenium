@@ -34,6 +34,10 @@ public class ArrakeenElementWait {
         });
     }
 
+    public void waitUntil(ElementState state, long timeoutInMillis) {
+        waitUntil(List.of(state), Duration.ofMillis(timeoutInMillis));
+    }
+
     public void waitUntil(List<ElementState> states) {
         waitUntil(states, defaultTimeout);
     }

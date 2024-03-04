@@ -13,6 +13,9 @@
         <Logger name="io.github.justthieenj.arrakeenselenium.utils" level="TRACE" additivity="false">
             <AppenderRef ref="Utils"/>
         </Logger>
+        <Logger name="io.github.justthieenj.arrakeenselenium.utils.Log" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
         <Logger name="io.github.justthieenj.arrakeenselenium.core" level="TRACE" additivity="false">
             <AppenderRef ref="Utils"/>
         </Logger>

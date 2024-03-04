@@ -9,7 +9,7 @@ public class JsonUtils {
     public static <T> T getObject(String filePath, Class<T> clazz) {
         T object;
         try {
-            ObjectMapper mapper = new ObjectMapper();
+            var mapper = new ObjectMapper();
             object = mapper.readValue(new File(filePath), clazz);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -18,13 +18,13 @@ public class JsonUtils {
     }
 
     public static ObjectNode getObjectNode(String filePath) {
-        ObjectNode object;
+        ObjectNode objectNode;
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            object = mapper.readTree(new File(filePath)).deepCopy();
+            var mapper = new ObjectMapper();
+            objectNode = mapper.readTree(new File(filePath)).deepCopy();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return object;
+        return objectNode;
     }
 }

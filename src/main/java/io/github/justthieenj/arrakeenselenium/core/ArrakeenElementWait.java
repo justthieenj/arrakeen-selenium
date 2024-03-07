@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
-public class ArrakeenElementWait {
+class ArrakeenElementWait {
     private final WebDriver driver;
     private final By byLocator;
     private final Duration defaultTimeout = Duration.ofMillis(ArrakeenConfig.TIMEOUT);

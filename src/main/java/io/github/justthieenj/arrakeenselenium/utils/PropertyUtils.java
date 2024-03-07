@@ -16,13 +16,19 @@ public class PropertyUtils {
         jsonNode.fieldNames().forEachRemaining(keys::add);
         // set system properties from json file if not exists
         var setKeys = new ArrayList<String>(); // for logging purpose
+        var overrideKeys = new ArrayList<String>(); // for logging purpose
         keys.forEach(key -> {
             if (System.getProperty(key) == null) {
                 var value = jsonNode.get(key).asText();
                 System.setProperty(key, value);
                 setKeys.add(key);
+            } else {
+                overrideKeys.add(key);
             }
         });
         LOGGER.info("System properties initialized: {}", setKeys);
+        if (!overrideKeys.isEmpty()) {
+            LOGGER.info("System properties manually set: {}", overrideKeys);
+        }
     }
 }

@@ -5,26 +5,34 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.github.justthieenj.arrakeenselenium.utils.JsonUtils;
 import lombok.Data;
 
-import java.util.Objects;
+import java.io.IOException;
 
 @Data
 public class Config {
-    private String keenBrowser;
-    private boolean keenHeadless;
-    private boolean keenSavePageSource;
-    private long keenTimeout;
-    private long keenNavigationTimeout;
-    private String keenBaseUrl;
+    private String browser;
+    private boolean headless;
+    private boolean savePageSource;
+    private long timeout;
+    private long checkTimeout;
+    private long navigationTimeout;
+    private String baseUrl;
 
-    private static final String FULL_PATH = Objects.requireNonNull(Config.class.getClassLoader().getResource("config.json")).getPath();
     private static Config instance;
     private static ObjectNode objectNode;
 
     public static Config get() {
-        return instance = instance != null ? instance : JsonUtils.getObject(FULL_PATH, Config.class);
+        try (var inputStream = Config.class.getClassLoader().getResourceAsStream("config.json")) {
+            return instance = instance != null ? instance : JsonUtils.getObject(inputStream, Config.class);
+        } catch (IOException e) {
+            throw new RuntimeException("config.json not found in resources folder");
+        }
     }
 
     public static ObjectNode getObjectNode() {
-        return objectNode = objectNode != null ? objectNode : JsonUtils.getObjectNode(FULL_PATH);
+        try (var inputStream = Config.class.getClassLoader().getResourceAsStream("config.json")) {
+            return objectNode = objectNode != null ? objectNode : JsonUtils.getObjectNode(inputStream);
+        } catch (IOException e) {
+            throw new RuntimeException("config.json not found in resources folder");
+        }
     }
 }

@@ -1,8 +1,9 @@
 {
-  "keenBrowser": "chrome",
-  "keenHeadless": false,
-  "keenSavePageSource": true,
-  "keenTimeout": 10000,
-  "keenNavigationTimeout": 60000,
-  "keenBaseUrl": ""
+  "browser": "chrome",
+  "headless": false,
+  "savePageSource": true,
+  "timeout": 10000,
+  "checkTimeout": 10000,
+  "navigationTimeout": 60000,
+  "baseUrl": ""
 }

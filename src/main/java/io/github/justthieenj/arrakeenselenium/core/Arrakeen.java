@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.time.Duration;
+
 public class Arrakeen {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final ThreadLocal<WebDriver> DRIVERS = new ThreadLocal<>();
@@ -27,10 +29,11 @@ public class Arrakeen {
     }
 
     public static void open(String url) {
+        var driver = getDriver();
         if (!ArrakeenConfig.HEADLESS) {
-            getDriver().manage().window().maximize();
+            driver.manage().window().maximize();
         }
-
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofMillis(ArrakeenConfig.NAVIGATION_TIMEOUT));
         String finalUrl = null;
         if (url.startsWith("http") || url.startsWith("https") || url.startsWith("www."))
             finalUrl = url;
@@ -41,7 +44,7 @@ public class Arrakeen {
             }
             finalUrl = ArrakeenConfig.BASE_URL + url;
         }
-        getDriver().get(finalUrl);
+        driver.get(finalUrl);
     }
 
     public static void quitDriver() {

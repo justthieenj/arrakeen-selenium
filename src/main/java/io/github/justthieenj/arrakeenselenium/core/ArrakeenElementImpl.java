@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 import java.util.Map;
 
-public class ArrakeenElementImpl implements ArrakeenElement, ArrakeenElements {
+class ArrakeenElementImpl implements ArrakeenElement, ArrakeenElements {
     protected String locator;
     protected By byLocator;
     protected ArrakeenElementWait wait;

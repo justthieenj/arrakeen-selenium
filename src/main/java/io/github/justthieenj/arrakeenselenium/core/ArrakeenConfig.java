@@ -1,7 +1,8 @@
-package io.github.justthieenj.arrakeenselenium.utils;
+package io.github.justthieenj.arrakeenselenium.core;
 
 import io.github.justthieenj.arrakeenselenium.dataobject.Config;
 import io.github.justthieenj.arrakeenselenium.enums.Browser;
+import io.github.justthieenj.arrakeenselenium.utils.ReflectUtils;
 
 public class ArrakeenConfig {
     private static final Config CONFIG = Config.get();

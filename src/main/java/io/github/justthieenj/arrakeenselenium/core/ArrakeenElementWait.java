@@ -1,7 +1,6 @@
 package io.github.justthieenj.arrakeenselenium.core;
 
 import io.github.justthieenj.arrakeenselenium.enums.ElementState;
-import io.github.justthieenj.arrakeenselenium.utils.ArrakeenConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;

@@ -1,13 +1,9 @@
 package io.github.justthieenj.arrakeenselenium.core;
 
-import io.github.justthieenj.arrakeenselenium.utils.ArrakeenConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
 
@@ -16,11 +12,7 @@ public class Arrakeen {
     private static final ThreadLocal<WebDriver> DRIVERS = new ThreadLocal<>();
 
     public static void initDriver() {
-        var driver = switch (ArrakeenConfig.BROWSER) {
-            case chrome -> new ChromeDriver();
-            case msedge -> new EdgeDriver();
-            case firefox -> new FirefoxDriver();
-        };
+        var driver = ArrakeenBrowser.initDriverAndCapabilities();
         DRIVERS.set(driver);
     }
 

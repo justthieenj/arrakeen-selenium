@@ -8,12 +8,6 @@
     <artifactId>arrakeen-selenium</artifactId>
     <version>1.0</version>
 
-    <repositories>
-        <repository>
-            <id>arrakeen-selenium</id>
-            <url>file://${user.home}/.m2/repository</url>
-        </repository>
-    </repositories>
     <packaging>jar</packaging>
 
     <properties>
@@ -24,6 +18,28 @@
         <log4j.version>2.22.1</log4j.version>
         <jackson.version>2.16.1</jackson.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>arrakeen-selenium-local</id>
+            <url>file://${user.home}/.m2/repository</url>
+        </repository>
+        <repository>
+            <id>arrakeen-selenium-github</id>
+            <url>https://maven.pkg.github.com/justthieenj/arrakeen-selenium</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <servers>
+        <server>
+            <id>github</id>
+            <username>${USERNAME}</username>
+            <password>${TOKEN}</password>
+        </server>
+    </servers>
 
     <build>
         <plugins>

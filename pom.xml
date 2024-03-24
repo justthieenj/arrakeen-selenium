@@ -8,6 +8,12 @@
     <artifactId>arrakeen-selenium</artifactId>
     <version>1.0</version>
 
+    <repositories>
+        <repository>
+            <id>arrakeen-selenium</id>
+            <url>file://${user.home}/.m2/repository</url>
+        </repository>
+    </repositories>
     <packaging>jar</packaging>
 
     <properties>
@@ -15,31 +21,9 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <log4j.version>2.22.1</log4j.version>
-        <jackson.version>2.16.1</jackson.version>
+        <log4j.version>2.23.1</log4j.version>
+        <jackson.version>2.17.0</jackson.version>
     </properties>
-
-    <repositories>
-        <repository>
-            <id>arrakeen-selenium-local</id>
-            <url>file://${user.home}/.m2/repository</url>
-        </repository>
-        <repository>
-            <id>arrakeen-selenium-github</id>
-            <url>https://maven.pkg.github.com/justthieenj/arrakeen-selenium</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <servers>
-        <server>
-            <id>github</id>
-            <username>${USERNAME}</username>
-            <password>${TOKEN}</password>
-        </server>
-    </servers>
 
     <build>
         <plugins>
@@ -50,6 +34,21 @@
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <packageName>io.github.justthieenj.arrakeen-selenium</packageName>
+                        </manifest>
+                        <manifestEntries>
+                            <Built-By>justthieenj</Built-By>
+                        </manifestEntries>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
@@ -74,7 +73,7 @@
             <artifactId>log4j-api</artifactId>
             <version>${log4j.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
@@ -90,7 +89,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.30</version>
+            <version>1.18.32</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.jetbrains/annotations -->
         <dependency>

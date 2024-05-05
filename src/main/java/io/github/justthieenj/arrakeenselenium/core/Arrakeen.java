@@ -3,6 +3,7 @@ package io.github.justthieenj.arrakeenselenium.core;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
@@ -24,6 +25,8 @@ public class Arrakeen {
         var driver = getDriver();
         if (!ArrakeenConfig.HEADLESS) {
             driver.manage().window().maximize();
+        } else {
+            driver.manage().window().setSize(new Dimension(1920, 1080));
         }
         driver.manage().timeouts().pageLoadTimeout(Duration.ofMillis(ArrakeenConfig.NAVIGATION_TIMEOUT));
         String finalUrl = null;
@@ -36,6 +39,7 @@ public class Arrakeen {
             }
             finalUrl = ArrakeenConfig.BASE_URL + url;
         }
+        LOGGER.info("Opening {} in {}...", finalUrl, ArrakeenConfig.BROWSER);
         driver.get(finalUrl);
     }
 

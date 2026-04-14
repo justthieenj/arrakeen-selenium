@@ -12,14 +12,13 @@ public class PropertyUtils {
     public static void initSystemProperties() {
         var jsonNode = Config.getObjectNode();
         LOGGER.info("Initializing system properties from json file...");
-        var keys = new ArrayList<String>();
-        jsonNode.fieldNames().forEachRemaining(keys::add);
+        var keys = new ArrayList<>(jsonNode.propertyNames());
         // set system properties from json file if not exists
         var setKeys = new ArrayList<String>(); // for logging purpose
         var overrideKeys = new ArrayList<String>(); // for logging purpose
         keys.forEach(key -> {
             if (System.getProperty(key) == null) {
-                var value = jsonNode.get(key).asText();
+                var value = jsonNode.get(key).asString();
                 System.setProperty(key, value);
                 setKeys.add(key);
             } else {

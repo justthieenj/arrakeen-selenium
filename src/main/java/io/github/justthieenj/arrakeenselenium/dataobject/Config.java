@@ -1,9 +1,9 @@
 package io.github.justthieenj.arrakeenselenium.dataobject;
 
 
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.github.justthieenj.arrakeenselenium.utils.JsonUtils;
 import lombok.Data;
+import tools.jackson.databind.node.ObjectNode;
 
 import java.io.IOException;
 

@@ -1,7 +1,7 @@
 package io.github.justthieenj.arrakeenselenium.utils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.node.ObjectNode;
 
 import java.io.InputStream;
 import java.util.Collection;
@@ -22,7 +22,7 @@ public class JsonUtils {
         ObjectNode objectNode;
         try {
             var mapper = new ObjectMapper();
-            objectNode = mapper.readTree(file).deepCopy();
+            objectNode = mapper.readTree(file).deepCopy().asObject();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -2,6 +2,7 @@ package io.github.justthieenj.arrakeenselenium.core;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jspecify.annotations.NonNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +22,13 @@ public class Arrakeen {
         return DRIVERS.get();
     }
 
+    /**
+     * Opens the base URL in config.json file.
+     */
+    public static void open() {
+        open("/");
+    }
+
     public static void open(String url) {
         var driver = getDriver();
         if (!ArrakeenConfig.HEADLESS) {
@@ -29,7 +37,13 @@ public class Arrakeen {
             driver.manage().window().setSize(new Dimension(1920, 1080));
         }
         driver.manage().timeouts().pageLoadTimeout(Duration.ofMillis(ArrakeenConfig.NAVIGATION_TIMEOUT));
-        String finalUrl = null;
+        var finalUrl = getFinalUrl(url);
+        LOGGER.info("Opening {} in {}...", finalUrl, ArrakeenConfig.BROWSER);
+        driver.get(finalUrl);
+    }
+
+    private static @NonNull String getFinalUrl(String url) {
+        String finalUrl;
         if (url.startsWith("http") || url.startsWith("https") || url.startsWith("www."))
             finalUrl = url;
         else if (url.startsWith("/") || url.isEmpty()) {
@@ -38,9 +52,10 @@ public class Arrakeen {
                 throw new IllegalArgumentException("Base URL is not set");
             }
             finalUrl = ArrakeenConfig.BASE_URL + url;
+        } else {
+            throw new IllegalArgumentException("Invalid URL: " + url);
         }
-        LOGGER.info("Opening {} in {}...", finalUrl, ArrakeenConfig.BROWSER);
-        driver.get(finalUrl);
+        return finalUrl;
     }
 
     public static void quitDriver() {
@@ -68,7 +83,6 @@ public class Arrakeen {
     public static ArrakeenElements finds(By locator) {
         return new ArrakeenElementImpl(locator);
     }
-
 
     public static void sleep(long milliseconds) {
         try {

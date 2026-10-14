@@ -21,9 +21,9 @@
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <log4j.version>2.25.4</log4j.version>
-        <jackson.version>3.1.2</jackson.version>
-        <lombok.version>1.18.44</lombok.version>
+        <log4j.version>2.26.1</log4j.version>
+        <jackson.version>3.2.3</jackson.version>
+        <lombok.version>1.18.48</lombok.version>
     </properties>
 
     <build>
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.43.0</version>
+            <version>4.51.0</version>
         </dependency>
         <!-- Source: https://mvnrepository.com/artifact/tools.jackson.core/jackson-databind -->
         <dependency>
@@ -76,7 +76,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.20.0</version>
+            <version>3.21.0</version>
         </dependency>
         <!-- Source: https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
